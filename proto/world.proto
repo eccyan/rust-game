@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package world;
+
+service World {
+  rpc GetFeature (Point) returns (Feature) { }
+  rpc GetAroundFeatures (Point) returns (stream Feature) { }
+}
+
+message Point {
+  float longitude = 1;
+  float latitude = 2;
+}
+
+message Feature {
+  string name = 1;
+  Point location = 2;
+}
